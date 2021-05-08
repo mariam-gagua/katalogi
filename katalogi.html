@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>კატალოგი</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-primary">
+        <div class="container">
+            <a class="navbar-brand text-light">Car catalogue</a>
+            <button class="btn btn-outline-light" type="submit" onclick="window.open('loginPage.html', '_self')">Log
+                In</button>
+        </div>
+    </nav>
+    <div class="container mt-3 px-5">
+        <div class="menu-bar">
+            <button type="button" onclick="showCheapest()">ყველაზე იაფიანი მანქანა</button>
+        </div>
+        <div class="row gx-5">
+            <div class="col-sm card" id="bmw">
+                <img src="img/bmw.jpg" class="w-100 img-thumbnail card-img-top" style="height: 240px;"
+                    onclick="details(this)" />
+                <div class="card-body">
+                    <h5 class="card-title" id="title-1"></h5>
+                    <button type="button" class="btn btn-primary w-100" onclick="buy()">ყიდვა</button>
+                </div>
+            </div>
+            <div class="col-sm card" id="mercedes">
+                <img src="img/mercedes.jpg" class="w-100 img-thumbnail" style="height: 240px;"
+                    onclick="details(this)" />
+                <div class="card-body">
+                    <h5 class="card-title" id="title-2"></h5>
+                    <button type="button" class="btn btn-primary w-100" onclick="buy()">ყიდვა</button>
+                </div>
+            </div>
+            <div class="col-sm card" id="tesla">
+                <img src="img/tesla.jpg" class="w-100 img-thumbnail" style="height: 240px;" onclick="details(this)" />
+                <div class="card-body">
+                    <h5 class="card-title" id="title-3"></h5>
+                    <button type="button" class="btn btn-primary w-100" onclick="buy()">ყიდვა</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="scripts/cars.js"></script>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>კატალოგი</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-primary">
+        <div class="container">
+            <a class="navbar-brand text-light">Car catalogue</a>
+            <button class="btn btn-outline-light" type="submit" onclick="window.open('loginPage.html', '_self')">Log
+                In</button>
+        </div>
+    </nav>
+    <div class="container mt-3 px-5">
+        <div class="menu-bar">
+            <button type="button" onclick="showCheapest()">ყველაზე იაფიანი მანქანა</button>
+        </div>
+        <div class="menu-bar">
+            <button type="button" onclick="showMostExpensive()">ყველაზე ძვირიანი მანქანა</button>
+        </div>
+        <div class="row gx-5">
+            <div class="col-sm card" id="bmw">
+                <img src="img/bmw.jpg" class="w-100 img-thumbnail card-img-top" style="height: 240px;"
+                    onclick="details(this)" />
+                <div class="card-body">
+                    <h5 class="card-title" id="title-1"></h5>
+                    <button type="button" class="btn btn-primary w-100" onclick="buy()">ყიდვა</button>
+                </div>
+            </div>
+            <div class="col-sm card" id="mercedes">
+                <img src="img/mercedes.jpg" class="w-100 img-thumbnail" style="height: 240px;"
+                    onclick="details(this)" />
+                <div class="card-body">
+                    <h5 class="card-title" id="title-2"></h5>
+                    <button type="button" class="btn btn-primary w-100" onclick="buy()">ყიდვა</button>
+                </div>
+            </div>
+            <div class="col-sm card" id="tesla">
+                <img src="img/tesla.jpg" class="w-100 img-thumbnail" style="height: 240px;" onclick="details(this)" />
+                <div class="card-body">
+                    <h5 class="card-title" id="title-3"></h5>
+                    <button type="button" class="btn btn-primary w-100" onclick="buy()">ყიდვა</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var car1 = {
+        brand: "bmw",
+        model: "x3",
+        year: 2015,
+        price: 15000,
+        currency: "$"
+    };
+
+    var car2 = {
+        brand: "mercedes",
+        model: "a class",
+        year: 2017,
+        price: 17000,
+        currency: "$"
+    }
+
+    var car3 = {
+        brand: "tesla",
+        model: "x",
+        year: 2020,
+        price: 25000,
+        currency: "$"
+    }
+
+    var cars = [car1, car2, car3];
+
+    document.getElementById("title-1").innerHTML = `${car1.brand} - ${car1.model} - ${car1.price}${car1.currency}`;
+    document.getElementById("title-2").innerHTML = `${car2.brand} - ${car2.model} - ${car2.price}${car2.currency}`;
+    document.getElementById("title-3").innerHTML = `${car3.brand} - ${car3.model} - ${car3.price}${car3.currency}`;
+
+    function buy() {
+        alert("ვერ შეიძენთ რადგან არ გაქვთ ავტორიზაცია გავლილი");
+    }
+
+    function findCar(id) {
+        var car = undefined;
+        for (var i = 0; i < cars.length; i++) {
+            if (cars[i].brand == id) {
+                car = cars[i];
+            }
+        }
+
+        return car;
+    }
+
+    function details(el) {
+        var id = el.parentNode.id;
+        var car = findCar(id);
+        alert(`მანქანის ფირმა: ${car.brand}, 
+    მოდელი: ${car.model},
+    გამოშვების წელი: ${car.year},
+    ფასი: ${car.price} ${car.currency}`)
+    }
+
+    function showCheapest() {
+        var cheapestCar = findCheapestCar();
+
+        for (var i = 0; i < cars.length; i++) {
+            if (cars[i].brand != cheapestCar.brand) {
+                var elementi = document.getElementById(cars[i].brand);
+                elementi.querySelector("button").disabled = true;
+            }
+        }
+    }
+
+    function findCheapestCar() {
+        var carWithMinPrice = cars[0];
+        for (var i = 0; i < cars.length; i++) {
+            if (cars[i].price < carWithMinPrice.price) {
+                carWithMinPrice = cars[i];
+            }
+        }
+
+        return carWithMinPrice;
+    }
+
+    function findExpensiveCar(){
+        var mostExpensive = cars[0];
+        for(var i=0; i < cars.length; i++){
+            if(vars[i].price > mostExpensive.price){
+                mostExpensive=cars[i];
+            }
+        }
+        return mostExpensive;
+    }
+
+    function showMostExpensive() {
+        var expensiveCar = findExpensiveCar();
+
+        for (var i = 0; i < cars.length; i++) {
+            if (cars[i].brand != expensiveCar.brand) {
+                var elementi = document.getElementById(cars[i].brand);
+                elementi.style.display='none';
+            }
+        }
+    }
+
+
+</script>
+
+</html>
